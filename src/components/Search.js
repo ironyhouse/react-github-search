@@ -18,7 +18,7 @@ export const Search = () => {
             alert.hide()
             github.search(value.trim())
         } else {
-            alert.show('Введите данные пользователя')
+            alert.show('Enter GitHub username')
         }
     }
 
@@ -27,7 +27,7 @@ export const Search = () => {
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Введите ник пользователя..."
+                    placeholder="Enter GitHub username..."
                     value={value}
                     onChange={event => setValue(event.target.value)}
                     onKeyPress={onSubmit}

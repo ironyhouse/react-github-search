@@ -14,7 +14,7 @@ export const Profile = ({match}) => {
     }, [])
 
     if (loading) {
-        return <p className="text-center">Загрузка...</p>
+        return <p className="text-center">Loading...</p>
     }
 
     const {
@@ -26,7 +26,7 @@ export const Profile = ({match}) => {
 
     return (
         <Fragment>
-            <Link to="/" className="btn btn-link">На главную</Link>
+            <Link to="/" className="btn btn-outline-primary mb-3">Home Page</Link>
 
             <div className="card mb-4">
                 <div className="card-body">
@@ -37,39 +37,41 @@ export const Profile = ({match}) => {
                                 src={avatar_url} 
                                 alt={name} 
                             />
-                            <h1>{name}</h1>
+                            <h3>{name}</h3>
                             {location && <p>Местоположение: {location}</p>}
                             </div>
-                            <div className="col">
+                            <div className="col p-2">
                                 {
                                     bio && <Fragment>
                                                 <h3>BIO</h3>
                                                 <p>{bio}</p>
                                             </Fragment>
                                 }
-                            <a 
-                                href={html_url} 
-                                rel="noopener noreferrer"
-                                target="_blank" 
-                                className="btn btn-dark"
-                                >Открыть профиль
-                            </a>
-                            <ul>
+                            <div className="d-flex justify-content-center justify-content-sm-start">
+                                <a 
+                                    href={html_url} 
+                                    rel="noopener noreferrer"
+                                    target="_blank" 
+                                    className="btn btn-dark"
+                                    >Open Profile
+                                </a>
+                            </div>
+                            <ul className="pt-3">
                                 {login && <li>
-                                            <b>Пользователь: </b> {login}
+                                            <b>User: </b> {login}
                                         </li>}
                                 {company && <li>
-                                            <b>Компания: </b> {company}
+                                            <b>Company: </b> {company}
                                         </li>}
                                 {blog && <li>
                                             <b>Website: </b> {blog}
                                         </li>}
                             </ul>
 
-                            <div className="badge badge-primary">Подписчики: {followers}</div>
-                            <div className="badge badge-success">Подписан: {following}</div>
-                            <div className="badge badge-info">Репозитории: {public_repos}</div>
-                            <div className="badge badge-dark">Gists: {public_gists}</div>
+                            <div className="badge badge-primary m-1 p-2">Followers: {followers}</div>
+                            <div className="badge badge-info m-1 p-2">Following: {following}</div>
+                            <div className="badge badge-secondary m-1 p-2">Repositories: {public_repos}</div>
+                            <div className="badge badge-dark m-1 p-2">Gists: {public_gists}</div>
                         </div>
                     </div>
                 </div>
